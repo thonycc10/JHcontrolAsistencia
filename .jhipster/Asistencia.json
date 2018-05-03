@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idasistencia",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "fecharegistroinicial",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecharegistrofinal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enumtipoAsistencia",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180503223500",
+    "entityTableName": "asistencia",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

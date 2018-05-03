@@ -1,0 +1,74 @@
+entity Rol {
+	id_rol Long,
+    nombre String,
+    descripcion String
+}
+
+entity Usuario {
+	id_usuario Long,
+    username String,
+    password String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Empleado {
+	id_empleado Long,
+	nombre String,
+	apellido String,
+	nacimiento String,
+    documento String,
+    foto String,
+    direccion String,
+    telefono String
+}
+
+entity Asistencia {
+	id_asistencia Long,
+    fecha_registro_inicial String,
+    fecha_registro_final String,
+    enum_tipoAsistencia String
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Area {
+	id_area Long,
+	nombre String,
+    descripcion String
+}
+
+entity Horarios {
+	id_horarios Long,
+	nombre String,
+	descripcion String,
+	fecha_inicio String,
+	fecha_final String,
+	horario_inicial String,
+	horario_final String
+}
+
+relationship OneToOne {
+	Empleado{usuario} to Usuario
+}
+
+
+relationship ManyToMany {
+	Usuario{rol} to Rol
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Empleado{asistencias} to Asistencia,
+    Area{empleado} to Empleado,
+    Horarios{area} to Area
+}
+
+// Set pagination options
+paginate * with pagination
+
+// Set service options to all except few
+service all with serviceImpl
+

@@ -1,0 +1,66 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "usuario",
+            "otherEntityName": "usuario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "empleado"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "asistencias",
+            "otherEntityName": "asistencia",
+            "otherEntityRelationshipName": "empleado"
+        },
+        {
+            "relationshipName": "area",
+            "otherEntityName": "area",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idempleado",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nacimiento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "documento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180503223459",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "empleado",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span>Horarios</span>
+        <button class="btn btn-primary float-right jh-create-entity create-horarios" [routerLink]="['/', { outlets: { popup: ['horarios-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Horarios
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="horarios">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idhorarios"><span>Idhorarios</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nombre"><span>Nombre</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="descripcion"><span>Descripcion</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fechainicio"><span>Fechainicio</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fechafinal"><span>Fechafinal</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="horarioinicial"><span>Horarioinicial</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="horariofinal"><span>Horariofinal</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let horarios of horarios ;trackBy: trackId">
+                <td><a [routerLink]="['../horarios', horarios.id ]">{{horarios.id}}</a></td>
+                <td>{{horarios.idhorarios}}</td>
+                <td>{{horarios.nombre}}</td>
+                <td>{{horarios.descripcion}}</td>
+                <td>{{horarios.fechainicio}}</td>
+                <td>{{horarios.fechafinal}}</td>
+                <td>{{horarios.horarioinicial}}</td>
+                <td>{{horarios.horariofinal}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../horarios', horarios.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'horarios/'+ horarios.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'horarios/'+ horarios.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="horarios && horarios.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

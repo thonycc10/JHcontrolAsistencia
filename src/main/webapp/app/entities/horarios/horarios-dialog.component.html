@@ -1,0 +1,60 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myHorariosLabel">Create or edit a Horarios</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!horarios.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="horarios.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_idhorarios">Idhorarios</label>
+            <input type="number" class="form-control" name="idhorarios" id="field_idhorarios"
+                [(ngModel)]="horarios.idhorarios" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                [(ngModel)]="horarios.nombre" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_descripcion">Descripcion</label>
+            <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                [(ngModel)]="horarios.descripcion" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fechainicio">Fechainicio</label>
+            <input type="text" class="form-control" name="fechainicio" id="field_fechainicio"
+                [(ngModel)]="horarios.fechainicio" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fechafinal">Fechafinal</label>
+            <input type="text" class="form-control" name="fechafinal" id="field_fechafinal"
+                [(ngModel)]="horarios.fechafinal" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_horarioinicial">Horarioinicial</label>
+            <input type="text" class="form-control" name="horarioinicial" id="field_horarioinicial"
+                [(ngModel)]="horarios.horarioinicial" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_horariofinal">Horariofinal</label>
+            <input type="text" class="form-control" name="horariofinal" id="field_horariofinal"
+                [(ngModel)]="horarios.horariofinal" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
