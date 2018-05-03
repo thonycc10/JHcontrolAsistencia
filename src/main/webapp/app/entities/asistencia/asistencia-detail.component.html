@@ -1,0 +1,44 @@
+
+<div *ngIf="asistencia">
+    <h2><span>Asistencia</span> {{asistencia.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Idasistencia</span></dt>
+        <dd>
+            <span>{{asistencia.idasistencia}}</span>
+        </dd>
+        <dt><span>Fecharegistroinicial</span></dt>
+        <dd>
+            <span>{{asistencia.fecharegistroinicial}}</span>
+        </dd>
+        <dt><span>Fecharegistrofinal</span></dt>
+        <dd>
+            <span>{{asistencia.fecharegistrofinal}}</span>
+        </dd>
+        <dt><span>Enumtipo Asistencia</span></dt>
+        <dd>
+            <span>{{asistencia.enumtipoAsistencia}}</span>
+        </dd>
+        <dt><span>Empleado</span></dt>
+        <dd>
+            <div *ngIf="asistencia.empleado">
+                <a [routerLink]="['/empleado', asistencia.empleado?.id]">{{asistencia.empleado?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'asistencia/'+ asistencia.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

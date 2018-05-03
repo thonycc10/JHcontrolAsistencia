@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "area",
+            "otherEntityName": "area",
+            "otherEntityRelationshipName": "horarios"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idhorarios",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechainicio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechafinal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "horarioinicial",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "horariofinal",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180503223502",
+    "entityTableName": "horarios",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

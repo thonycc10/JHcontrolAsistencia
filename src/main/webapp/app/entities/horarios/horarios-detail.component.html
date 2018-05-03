@@ -1,0 +1,50 @@
+
+<div *ngIf="horarios">
+    <h2><span>Horarios</span> {{horarios.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Idhorarios</span></dt>
+        <dd>
+            <span>{{horarios.idhorarios}}</span>
+        </dd>
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{horarios.nombre}}</span>
+        </dd>
+        <dt><span>Descripcion</span></dt>
+        <dd>
+            <span>{{horarios.descripcion}}</span>
+        </dd>
+        <dt><span>Fechainicio</span></dt>
+        <dd>
+            <span>{{horarios.fechainicio}}</span>
+        </dd>
+        <dt><span>Fechafinal</span></dt>
+        <dd>
+            <span>{{horarios.fechafinal}}</span>
+        </dd>
+        <dt><span>Horarioinicial</span></dt>
+        <dd>
+            <span>{{horarios.horarioinicial}}</span>
+        </dd>
+        <dt><span>Horariofinal</span></dt>
+        <dd>
+            <span>{{horarios.horariofinal}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'horarios/'+ horarios.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

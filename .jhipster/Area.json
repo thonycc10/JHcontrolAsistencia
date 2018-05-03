@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
+            "otherEntityRelationshipName": "area"
+        },
+        {
+            "relationshipName": "horarios",
+            "otherEntityName": "horarios",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idarea",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180503223501",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "area",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

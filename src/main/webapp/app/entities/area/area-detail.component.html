@@ -1,0 +1,40 @@
+
+<div *ngIf="area">
+    <h2><span>Area</span> {{area.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Idarea</span></dt>
+        <dd>
+            <span>{{area.idarea}}</span>
+        </dd>
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{area.nombre}}</span>
+        </dd>
+        <dt><span>Descripcion</span></dt>
+        <dd>
+            <span>{{area.descripcion}}</span>
+        </dd>
+        <dt><span>Horarios</span></dt>
+        <dd>
+            <div *ngIf="area.horarios">
+                <a [routerLink]="['/horarios', area.horarios?.id]">{{area.horarios?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'area/'+ area.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
